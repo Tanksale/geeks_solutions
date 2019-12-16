@@ -12,16 +12,15 @@
 #          str = "geeksforgeeks"
 # Output : geeksgeeks
 
-require 'pry'
 def find_largest_word(dict, str)
-	string_split = str.split("")
-	dict.values.sort_by(&:length).reverse.each do |word|
-		word_split = word.split("")
+  string_split = str.split("")
+  dict.values.sort_by(&:length).reverse.each do |word|
+    word_split = word.split("")
     if word_split.uniq.all? {|character| string_split.count(character) >= word_split.count(character) }
       puts word
       break
     end
-	end
+  end
 end
 
 
