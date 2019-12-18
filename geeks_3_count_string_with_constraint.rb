@@ -13,13 +13,9 @@
 # Input  : n = 4
 # Output : 39
 
-require 'pry'
-
 def count_string(n)
   permutations = ['a', 'b', 'c'].repeated_permutation(n).to_a
-  permutations.each do |permutation|
-    permutations = (permutations - [permutation]) if (permutation.count("b") > 1 || permutation.count("c") > 2)
-  end
+  permutations.delete_if {|permutation| (permutation.count("b") > 1 || permutation.count("c") > 2)}
   puts permutations.count
 end
 
